@@ -68,7 +68,7 @@ class ServerMemberListViewController: BaseViewController {
         switch self.showType {
         case .channel(serverId: let serverId, channelId: let channelId):
             HUD.show(.progress)
-            EMClient.shared.circleManager?.fetchChannelDetail(serverId, channelId: channelId, completion: { channel, error in
+            EMClient.shared().circleManager?.fetchChannelDetail(serverId, channelId: channelId, completion: { channel, error in
                 HUD.hide()
                 if let error = error {
                     Toast.show(error.errorDescription, duration: 2)

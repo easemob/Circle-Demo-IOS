@@ -144,7 +144,7 @@ class ServerSettingViewController: ServerBaseSettingViewController {
         self.dismiss(animated: true)
         if let channels = ServerChannelMapManager.shared.getJoinedChannelIds(in: self.serverId) {
             for i in channels {
-                EMClient.shared.chatManager?.getConversation(i, type: .groupChat, createIfNotExist: true, isThread: false, isChannel: true)?.markAllMessages(asRead: nil)
+                EMClient.shared().chatManager?.getConversation(i, type: .groupChat, createIfNotExist: true, isThread: false, isChannel: true)?.markAllMessages(asRead: nil)
             }
             NotificationCenter.default.post(name: EMCircleServerMessageUnreadCountChange, object: self.serverId)
         }

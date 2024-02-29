@@ -53,7 +53,7 @@ class MessageServerChannelCell: UITableViewCell {
             if channel?.mode == .chat {
                 self.privateImageView.image = UIImage(named: channel?.type == .private ? "#_channel_private" : "#_channel_public")
                 self.sublevelLabel.text = "子区"
-                if let channelId = self.channel?.channelId, let conversation = EMClient.shared.chatManager?.getConversation(channelId, type: .groupChat, createIfNotExist: true, isThread: false, isChannel: true) {
+                if let channelId = self.channel?.channelId, let conversation = EMClient.shared().chatManager?.getConversation(channelId, type: .groupChat, createIfNotExist: true, isThread: false, isChannel: true) {
                     if conversation.unreadMessagesCount > 0 {
                         self.unreadView.isHidden = false
                         self.unreadCountLabel.text = "\(conversation.unreadMessagesCount)"

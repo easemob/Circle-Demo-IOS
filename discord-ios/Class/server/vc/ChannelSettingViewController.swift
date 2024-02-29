@@ -180,7 +180,7 @@ class ChannelSettingViewController: ServerBaseSettingViewController {
     
     func makeAllReadAction() {
         self.dismiss(animated: true)
-        EMClient.shared.chatManager?.getConversation(self.channelId, type: .groupChat, createIfNotExist: true, isThread: false, isChannel: true)?.markAllMessages(asRead: nil)
+        EMClient.shared().chatManager?.getConversation(self.channelId, type: .groupChat, createIfNotExist: true, isThread: false, isChannel: true)?.markAllMessages(asRead: nil)
         NotificationCenter.default.post(name: EMCircleServerMessageUnreadCountChange, object: self.serverId)
     }
     

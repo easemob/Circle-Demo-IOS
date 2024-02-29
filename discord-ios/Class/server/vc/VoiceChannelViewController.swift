@@ -78,7 +78,7 @@ class VoiceChannelViewController: UIViewController {
         self.muteButton.isSelected = VoiceChatManager.shared.isMuted()
         self.inviteButton.isHidden = !isJoined
 
-        EMClient.shared.circleManager?.fetchChannelMembers(self.showType.serverId, channelId: self.showType.channelId, limit: 20, cursor: nil, completion: { result, error in
+        EMClient.shared().circleManager?.fetchChannelMembers(self.showType.serverId, channelId: self.showType.channelId, limit: 20, cursor: nil, completion: { result, error in
             if let error = error {
                 Toast.show(error.errorDescription, duration: 2)
             } else if let result = result {

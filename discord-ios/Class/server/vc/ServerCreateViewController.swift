@@ -110,6 +110,7 @@ class ServerCreateViewController: BaseViewController {
     }
     
     private func createServer(name: String, icon: String) {
+        self.view.endEditing(true)
         let attribute = EMCircleServerAttribute()
         attribute.name = name
         attribute.icon = icon
